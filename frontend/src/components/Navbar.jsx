@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import Searching from "./Searching";
 import { useState } from "react";
 import { FaSun } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { IoMenuSharp } from "react-icons/io5";
+import Searching from "./Searching";
 
 const Navbar = () => {
   const [openedMenu, setOpenedMenu] = useState();
@@ -79,17 +79,23 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu */}
+      </div>
+      <div className="md:hidden flex justify-end">
+        <button onClick={toggleMobileMenu}>
+          {openedMenu ? (
+            <IoClose className="size-9" />
+          ) : (
+            <IoMenuSharp className="size-9" />
+          )}
+        </button>
+      </div>
 
-        <div className="md:hidden block">
-          <button onClick={toggleMobileMenu}>
-            {openedMenu ? <IoClose /> : <IoMenuSharp />}
-          </button>
+      {/*items only for mobile menu*/}
+      {openedMenu && (
+        <div className="md:hidden">
+          <h1>the topg</h1>
         </div>
-      </div>
-      {/* only for mobile */}
-      <div className="hidden">
-        <h1>mobile</h1>
-      </div>
+      )}
     </nav>
   );
 };
