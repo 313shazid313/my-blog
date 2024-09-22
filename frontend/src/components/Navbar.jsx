@@ -80,8 +80,9 @@ const Navbar = () => {
 
         {/* Mobile menu */}
       </div>
-      <div className="md:hidden flex justify-end">
-        <button onClick={toggleMobileMenu}>
+      <div className="md:hidden flex ">
+        <p className="">myBlog</p>
+        <button onClick={toggleMobileMenu} className="flex justify-end">
           {openedMenu ? (
             <IoClose className="size-9" />
           ) : (
@@ -92,7 +93,7 @@ const Navbar = () => {
 
       {/*items only for mobile menu*/}
       {openedMenu && (
-        <div className="md:hidden">
+        <div className="md:hidden bg-slate-300 shadow-md">
           <h1>the topg</h1>
         </div>
       )}
